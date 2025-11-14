@@ -1,0 +1,29 @@
+{
+  "rules": {
+    "surveys": {
+      ".read": "auth != null",
+      ".write": true,
+      "$surveyId": {
+        ".validate": "newData.hasChildren(['customerSatisfaction', 'foodQuality', 'cleanliness', 'timestamp'])",
+        "customerSatisfaction": {
+          ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 5"
+        },
+        "foodQuality": {
+          ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 5"
+        },
+        "cleanliness": {
+          ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 5"
+        },
+        "improvements": {
+          ".validate": "newData.isString()"
+        },
+        "likes": {
+          ".validate": "newData.isString()"
+        },
+        "timestamp": {
+          ".validate": "newData.isString()"
+        }
+      }
+    }
+  }
+}
