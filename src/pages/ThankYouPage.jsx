@@ -12,11 +12,11 @@ const ThankYouPage = () => {
       'BEGIN:VEVENT',
       'UID:advisory-board-2026-03-09@raptor-dfac.mil',
       'DTSTAMP:' + new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z',
-      'DTSTART:20260309T220000Z', // 1500 PST = 2200 UTC
-      'DTEND:20260309T230000Z',   // 1 hour duration
+      'DTSTART:20260309T220000Z',
+      'DTEND:20260309T230000Z',
       'SUMMARY:Quarterly Enlisted Advisory Board',
-      'DESCRIPTION:Enlisted Advisory Board meeting for the 1-2 SBCT Raptor DFAC. All enlisted servicemembers who eat at the dining facility are encouraged to participate. Bring your feedback and suggestions.',
-      'LOCATION:1-2 SBCT Raptor DFAC',
+      'DESCRIPTION:Enlisted Advisory Board meeting for the Raptors Nest DFAC.',
+      'LOCATION:Raptors Nest DFAC',
       'STATUS:CONFIRMED',
       'SEQUENCE:0',
       'END:VEVENT',
@@ -36,10 +36,9 @@ const ThankYouPage = () => {
     <div style={styles.container}>
       <div style={styles.card}>
         <div style={styles.checkmark}>✓</div>
-        <h1 style={styles.title}>Thank You for Your Feedback!</h1>
+        <h1 style={styles.title}>Thank You!</h1>
         <p style={styles.message}>
-          Your input helps us serve you better. We appreciate your service and 
-          commitment to improving the Raptor DFAC.
+          Your feedback helps us serve you better. We appreciate your service.
         </p>
 
         <div style={styles.advisorySection}>
@@ -50,14 +49,16 @@ const ThankYouPage = () => {
           <div style={styles.meetingDetails}>
             <p style={styles.detail}><strong>Date:</strong> 09 March 2026</p>
             <p style={styles.detail}><strong>Time:</strong> 1500 (3:00 PM)</p>
-            <p style={styles.detail}><strong>Location:</strong> Raptor DFAC</p>
+            <p style={styles.detail}><strong>Location:</strong> Raptors Nest DFAC</p>
           </div>
           <button onClick={downloadCalendarEvent} style={styles.calendarButton}>
             📅 Add to Calendar
           </button>
         </div>
 
-
+        <button onClick={() => navigate('/')} style={styles.newSurveyBtn}>
+          Submit Another Response
+        </button>
       </div>
     </div>
   );
@@ -66,7 +67,7 @@ const ThankYouPage = () => {
 const styles = {
   container: {
     minHeight: '100vh',
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#1a1a2e',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -74,47 +75,46 @@ const styles = {
     fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
   },
   card: {
-    backgroundColor: 'white',
+    backgroundColor: '#2d3142',
     borderRadius: '8px',
     padding: '40px',
-    maxWidth: '500px',
+    maxWidth: '480px',
     width: '100%',
-    textAlign: 'center',
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+    textAlign: 'center'
   },
   checkmark: {
     fontSize: '64px',
-    color: '#10b981',
+    color: '#4a7c59',
     marginBottom: '16px'
   },
   title: {
     fontSize: '28px',
     fontWeight: 'bold',
-    color: '#1a472a',
+    color: '#e8b931',
     marginBottom: '16px'
   },
   message: {
     fontSize: '16px',
-    color: '#4b5563',
+    color: '#a0a0b0',
     lineHeight: '1.6',
     marginBottom: '32px'
   },
   advisorySection: {
-    backgroundColor: '#fef3c7',
-    border: '2px solid #f59e0b',
+    backgroundColor: '#1a1a2e',
     borderRadius: '8px',
     padding: '24px',
-    marginBottom: '24px'
+    marginBottom: '24px',
+    border: '1px solid #e8b931'
   },
   advisoryTitle: {
-    fontSize: '20px',
+    fontSize: '18px',
     fontWeight: 'bold',
-    color: '#92400e',
+    color: '#e8b931',
     marginBottom: '8px'
   },
   advisoryText: {
     fontSize: '14px',
-    color: '#78350f',
+    color: '#a0a0b0',
     marginBottom: '16px'
   },
   meetingDetails: {
@@ -124,19 +124,28 @@ const styles = {
   detail: {
     margin: '8px 0',
     fontSize: '14px',
-    color: '#78350f'
+    color: '#ffffff'
   },
   calendarButton: {
     width: '100%',
     padding: '12px',
-    backgroundColor: '#f59e0b',
-    color: 'white',
+    backgroundColor: '#e8b931',
+    color: '#1a1a2e',
     border: 'none',
-    borderRadius: '4px',
-    fontSize: '16px',
+    borderRadius: '6px',
+    fontSize: '14px',
     fontWeight: 'bold',
-    cursor: 'pointer',
-    marginTop: '8px'
+    cursor: 'pointer'
+  },
+  newSurveyBtn: {
+    width: '100%',
+    padding: '14px',
+    backgroundColor: 'transparent',
+    color: '#a0a0b0',
+    border: '1px solid #3d3d5c',
+    borderRadius: '6px',
+    fontSize: '14px',
+    cursor: 'pointer'
   }
 };
 
